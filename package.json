@@ -2,7 +2,10 @@
   "name": "apisendpdf",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "index.js",
+  "engines": {
+    "node": "16.20.0"
+  },
   "scripts": {
     "dev": "npx tsx watch src/index.ts",
     "build": "tsup src",
