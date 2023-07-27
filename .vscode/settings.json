@@ -1,0 +1,10 @@
+{
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "cSpell.language": "en,pt",
+    "cSpell.words": [
+        "Ville"
+    ],
+    "cSpell.enableFiletypes": [
+        "!typescriptreact"
+    ]
+}
