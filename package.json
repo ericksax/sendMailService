@@ -1,42 +1,31 @@
 {
-  "name": "apisendpdf",
+  "name": "sendemailatachment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "16.20.0"
-  },
+  "type": "module",
   "scripts": {
-    "dev": "npx tsx watch src/index.ts",
-    "build": "tsup src",
-    "start": "node dist/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@react-email/body": "^0.0.2",
-    "@react-email/button": "0.0.9",
-    "@react-email/container": "^0.0.8",
-    "@react-email/head": "^0.0.5",
-    "@react-email/heading": "^0.0.8",
-    "@react-email/html": "0.0.4",
-    "@react-email/img": "^0.0.5",
-    "@react-email/render": "^0.0.7",
-    "@react-email/tailwind": "0.0.8",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "nodemailer": "^6.9.3",
-    "react": "^18.2.0"
-  },
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
-    "@types/node": "^20.4.2",
-    "@types/nodemailer": "^6.4.8",
-    "@types/react": "^18.2.15",
-    "tsup": "^7.1.0",
+    "@types/nodemailer": "^6.4.9",
+    "@types/react": "^18.2.18",
+    "ts-node-dev": "^2.0.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.1.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.4",
+    "react": "^18.2.0"
   }
 }
