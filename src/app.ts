@@ -8,6 +8,6 @@ app.use(express.json())
 app.use(router)
 app.use(express.static('./src/public'));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('server is running')
 })

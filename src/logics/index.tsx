@@ -1,9 +1,9 @@
+import 'dotenv/config';
 import { renderToBuffer } from "@react-pdf/renderer";
 import { Response, Request } from "express";
 import { createTransport } from "nodemailer";
 import { PDFDocument } from "../template";
 import React from "react";
-import 'dotenv/config';
 import { html } from "../template/htmlbody";
 
 const sendMail = async (req: Request, res: Response) => {
