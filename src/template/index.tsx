@@ -36,7 +36,11 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
     style: "currency",
     currency: "BRL",
   }).format(total);
-  const data = new Date(Date.now()).toLocaleDateString();
+  const data = new Date(Date.now()).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 
   return (
     <Document>
