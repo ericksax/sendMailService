@@ -8,10 +8,10 @@ import { html } from "../template/htmlbody";
 
 const sendMail = async (req: Request, res: Response) => {
   try {
-    const { email, list, contact } = req.body;
+    const { email, list, contact, numberOrc } = req.body;
 
     const pdfBuffer = await renderToBuffer(
-      <PDFDocument list={list} contact={contact} />
+      <PDFDocument list={list} contact={contact} numberOrc={numberOrc} />
     );
 
     const transporter = createTransport({
