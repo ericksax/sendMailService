@@ -1,10 +1,9 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View } from "@react-pdf/renderer";
 import { resolve } from "path";
 import { styles } from "./styles";
 
 const logo = resolve("src", "logomarca-ativa-hospitalar-black.png");
-
 
 interface ProductProps {
   id_produto: number;
@@ -17,11 +16,12 @@ interface ProductProps {
 
 interface PDFDocumentProps {
   list: ProductProps[];
+  numberOrc: string;
   contact: {
-    name: string;
-    contact: string;
+    solicitante_nome: string;
+    orgao_nome: string;
+    telefone: string;
     cnpj: string;
-    adress: string;
     email: string;
   };
 }
@@ -29,8 +29,13 @@ interface PDFDocumentProps {
 export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
   contact,
   list,
+  numberOrc,
 }: PDFDocumentProps) => {
   const total = list.reduce((a, b) => a + b.valor, 0);
+  const formattedTotal = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(total);
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -41,29 +46,26 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
           <div style={styles.topHeader}>
             <Text style={styles.bold}>ATIVA MEDICO CIRÚRGICA LTDA</Text>
             <Text>CNPJ : 09.182.725/0001-12</Text>
-            <Text>AV VEREADOR RAYMUNDO HARGREAVES, 98 - MILHO BRANCO </Text>
+            <Text>AV VEREADOR RAYMUNDO HARGREAVES, 98 - FONTESVILLE </Text>
             <Text>JUIZ DE FORA - MG - 36083-770</Text>
             <Text>Tel: (32)2101-1556</Text>
           </div>
-          <img
-            style={{ width: "140px", height: "54px" }}
-            src={logo}
-            alt="logomarca da ativa"
-          />
         </View>
         <View>
           <div style={styles.subHeader}>
-            <Text>Número do pedido: </Text>
+            <Text>Número do pedido: {numberOrc}</Text>
             <Text>Data: {}</Text>
           </div>
           <div style={styles.flex_between}>
-            <Text style={styles.subHeader_info}>Cliente: {contact.name}</Text>
             <Text style={styles.subHeader_info}>
-              Endereço: {contact.adress}
+              Cliente: {contact.solicitante_nome}
+            </Text>
+            <Text style={styles.subHeader_info}>
+              orgao/empresa: {contact.orgao_nome}
             </Text>
             <Text style={styles.subHeader_info}>CNPJ: {contact.cnpj}</Text>
           </div>
-          <Text style={styles.subHeader}>Contato: {contact.contact}</Text>
+          <Text style={styles.subHeader}>Contato: {contact.telefone}</Text>
         </View>
         <View style={styles.section}>
           <View style={styles.table}>
@@ -76,29 +78,28 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
               <Text style={styles.row5}>Valor</Text>
             </View>
             {list.map((item, i) => {
-              const numItem = i + 1;
+              const price = new Intl.NumberFormat("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              }).format(item.valor);
+              const quantity = item.quantity.toLocaleString("pt-br");
+              const embalagem = item.embalagem.substring(0, 30) + "...";
+              const fabricante = item.fabricante.substring(0, 20) + "...";
               return (
                 <View key={i} style={styles.row} wrap={false}>
-                  <Text style={styles.row0}>{numItem}</Text>
+                  <Text style={styles.row0}>{item.id_produto}</Text>
                   <Text style={styles.row1}>{item.descricao_produto}</Text>
-                  <Text style={styles.row2}>
-                    {" "}
-                    {item.embalagem.substring(0, 30) + "..."}
-                  </Text>
-                  <Text style={styles.row3}>
-                    {item.fabricante.substring(0, 20) + "..."}
-                  </Text>
-                  <Text style={styles.row4}>{item.quantity}</Text>
-                  <Text style={styles.row5}>
-                    {Number(item.valor).toFixed(2)}
-                  </Text>
+                  <Text style={styles.row2}>{embalagem}</Text>
+                  <Text style={styles.row3}>{fabricante}</Text>
+                  <Text style={styles.row4}>{quantity}</Text>
+                  <Text style={styles.row5}>{price}</Text>
                 </View>
               );
             })}
           </View>
         </View>
         <View>
-          <Text style={styles.total}>Total: {total}</Text>
+          <Text style={styles.total}>Total: {formattedTotal}</Text>
         </View>
         <View fixed style={styles.footer}>
           <Text fixed>
