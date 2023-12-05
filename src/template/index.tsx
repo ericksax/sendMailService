@@ -36,6 +36,8 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
     style: "currency",
     currency: "BRL",
   }).format(total);
+  const data = new Date(Date.now()).toLocaleDateString();
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -54,7 +56,7 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
         <View>
           <div style={styles.subHeader}>
             <Text>Número do pedido: {numberOrc}</Text>
-            <Text>Data: {}</Text>
+            <Text>Data: {data}</Text>
           </div>
           <div style={styles.flex_between}>
             <Text style={styles.subHeader_info}>
