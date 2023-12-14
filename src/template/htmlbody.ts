@@ -1,6 +1,3 @@
-import { resolve } from "path";
-const logo = resolve("src/public", "logomarca-ativa-hospitalar-black.png");
-
 export const html = `
     <body style="font-family: sans-serif; margin: 0; padding: 0">
     <div
@@ -28,13 +25,13 @@ export const html = `
         </p>
         <p style="padding: 0; margin: 0; font-size: 10px">Tel: (32)2101-1556</p>
         </div>
-        <img src="${logo}" />
     </div>
 
     <div style="margin-left: 24px; width: 550px; margin: 36px auto">
         <h2>Olá, seu E-mail com o orçamento chegou!!</h2>
         <p>Obrigado por utilizar nosso serviço!!</p>
-        <p>Qualquer dúvida pode nos procurar pelo telefone (032) 2101-1556</p>
+        <p>Estamos a disposição dessa secretaria no email : licitacao@ativahospitalar.com.br e 
+        nos telefones 32 2101‐1567,  32 2101‐1583 ou 32 2101‐1572</p>
     </div>
 
     <hr style="margin-left: 24px; margin-right: 24px" />

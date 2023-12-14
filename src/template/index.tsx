@@ -56,6 +56,7 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
             <Text>JUIZ DE FORA - MG - 36083-770</Text>
             <Text>Tel: (32)2101-1556</Text>
           </div>
+          <img src={logo} />
         </View>
         <View>
           <div style={styles.subHeader}>
