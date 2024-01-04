@@ -24,11 +24,11 @@ const sendMail = async (req: Request, res: Response) => {
     });
 
     const mailOptions = {
-      from: "licitacao@ativahospitalar.com.br",
+      from: "licitacao01@ativahospitalar.com.br",
       to: email,
-      subject: "ORÇAMENTO ESTIMATIVO EMPRESA ATIVA MEDICO CIRURGICA LTDA",
+      subject: "ORÇAMENTO ESTIMATIVO EMPRESA ATIVA MEDICO CIRÚRGICA LTDA",
       text: `Segue em anexo o arquivo docuemnto em PDF com o orçamento estimativo solicitado.  
-      Estamos a disposição dessa secretaria no email : licitacao@aƟvahospitalar.com.br e 
+      Estamos a disposição dessa secretaria no email: licitacao@ativahospitalar.com.br e 
       nos telefones 32 2101‐1567 , 32 2101‐1583 ; 32 2101‐1572 `,
       html: html,
       attachments: [

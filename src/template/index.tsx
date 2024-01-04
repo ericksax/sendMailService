@@ -1,9 +1,6 @@
 import React from "react";
 import { Document, Page, Text, View } from "@react-pdf/renderer";
-import { resolve } from "path";
 import { styles } from "./styles";
-
-const logo = resolve("src", "logomarca-ativa-hospitalar-black.png");
 
 interface ProductProps {
   id_produto: number;
@@ -54,9 +51,8 @@ export const PDFDocument: React.FC<Readonly<PDFDocumentProps>> = ({
             <Text>CNPJ : 09.182.725/0001-12</Text>
             <Text>AV VEREADOR RAYMUNDO HARGREAVES, 98 - FONTESVILLE </Text>
             <Text>JUIZ DE FORA - MG - 36083-770</Text>
-            <Text>Tel: (32)2101-1556</Text>
+            <Text>Tel: (32) 2101‐1567, (32) 2101‐1583 ou (32) 2101‐1572</Text>
           </div>
-          <img src={logo} />
         </View>
         <View>
           <div style={styles.subHeader}>

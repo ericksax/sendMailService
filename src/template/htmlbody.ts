@@ -12,7 +12,7 @@ export const html = `
     >
         <div style="margin-left: auto; margin-right: auto; padding: 10px">
         <p style="padding: 0; margin: 0; font-size: 10px">
-            ATIVA MÉDICO CIRÚRGICA LTDA
+            ATIVA MÉDICO CIRÚRGICA LTDA.
         </p>
         <p style="padding: 0; margin: 0; font-size: 10px">
             CNPJ : 09.182.725/0001-12
